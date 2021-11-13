@@ -8,20 +8,18 @@ if(isset($_POST['password'])){
   $q = mysqli_query($con,$sql); 
   $res = mysqli_fetch_assoc($q);
 if(!empty($res)){
-echo "ok"; 
-  $_SESSION['id']=$res;  
+// echo "ok"; 
+//   $_SESSION['id']=$res;  
 //    echo "email or password wrong"; 
   $res["hr"]?$_session['hr']=1:$_session['hr']=2;
-  echo $_session['hr'];
-//   echo $_session['hr']; 
-//  header("LOCATION:apply.php");
+    $_session["id_loggedin"]=$user;
+  //   echo $_session['hr']; 
+ header("LOCATION:apply.php");
 }else{
   echo "email or password wrong"; 
   //header("LOCATION:login.php");
 }
   }
-  
-  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,197 +28,219 @@ echo "ok";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>@import "bourbon";
-
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700);
-@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css);
-@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css);
-
-$shadow-color: #23203b;
-$input-color: lighten(#AB9E95, 10%);
-$input-border-color: #5E5165;
-$button-background-color: #27AE60;
-
+    <style>@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+a
 * {
-  margin: 0;
-  padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;	
+	font-family: Raleway, sans-serif;
 }
-html { 
-  background: url(https://dl.dropboxusercontent.com/u/159328383/background.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-body{
-    background-color: #7298b9;
-    width: 100%;
-    height: 100%;
-}
+
 body {
-  /* background: transparent; */
+	background: linear-gradient(90deg, #C7C5F4, #776BCC);		
 }
 
-body, input, button {
-  font-family: 'Source Sans Pro', sans-serif;
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
 }
 
-@mixin normalize-input {
-  display: block;
-  width: auto;
-  height: auto;
-  border: none;
-  outline: none;
-  box-shadow: none;
-  background: none;
-  border-radius: 0px;
+.screen {		
+	background: linear-gradient(90deg, #5D54A4, #7C78B8);		
+	position: relative;	
+	height: 600px;
+	width: 360px;	
+	box-shadow: 0px 0px 24px #5C5696;
+}
+
+.screen__content {
+	z-index: 1;
+	position: relative;	
+	height: 100%;
+}
+
+.screen__background {		
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 0;
+	-webkit-clip-path: inset(0 0 0 0);
+	clip-path: inset(0 0 0 0);	
+}
+
+.screen__background__shape {
+	transform: rotate(45deg);
+	position: absolute;
+}
+
+.screen__background__shape1 {
+	height: 520px;
+	width: 520px;
+	background: #FFF;	
+	top: -50px;
+	right: 120px;	
+	border-radius: 0 72px 0 0;
+}
+
+.screen__background__shape2 {
+	height: 220px;
+	width: 220px;
+	background: #6C63AC;	
+	top: -172px;
+	right: 0;	
+	border-radius: 32px;
+}
+
+.screen__background__shape3 {
+	height: 540px;
+	width: 190px;
+	background: linear-gradient(270deg, #5D54A4, #6A679E);
+	top: -24px;
+	right: 0;	
+	border-radius: 32px;
+}
+
+.screen__background__shape4 {
+	height: 400px;
+	width: 200px;
+	background: #7E7BB9;	
+	top: 420px;
+	right: 50px;	
+	border-radius: 60px;
 }
 
 .login {
-  padding: 15px;
-  width: 400px;
-  min-height: 400px;
-  margin: 2% auto 0 auto;
-
-  .heading {
-    text-align: center;
-    margin-top: 1%;
-
-    h2 {
-      font-size: 3em;
-      font-weight: 300;
-      color: rgba(255, 255, 255, 0.7);
-      display: inline-block;
-      padding-bottom: 5px;
-      text-shadow: 1px 1px 3px $shadow-color;
-    }
-  }
-
-  form {
-    .input-group {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-
-      &:last-of-type {
-        border-top: none;
-      }
-
-      span {
-        background: transparent;
-        min-width: 53px;
-        border: none;
-
-        i {
-          font-size: 1.5em;
-          color: rgba(255, 255, 255, 0.2);
-        }
-      }
-    }
-
-    input.form-control {
-      @include normalize-input;
-
-      padding: 10px;
-      font-size: 1.6em;
-      width: 100%;
-      background: transparent;
-      color: $input-color;
-
-      &:focus {
-        border: none;
-      }
-    }
-
-    button {
-      margin-top: 20px;
-      background: $button-background-color;
-      border: none;
-      font-size: 1.6em;
-      font-weight: 300;
-      padding: 5px 0;
-      width: 100%;
-      border-radius: 3px;
-      color: lighten($button-background-color, 40%);
-      border-bottom: 4px solid darken($button-background-color, 10%);
-
-      &:hover {
-        background: tint($button-background-color, 4%);
-        -webkit-animation: hop 1s;
-        animation: hop 1s;
-      }
-    }
-  }
+	width: 320px;
+	padding: 30px;
+	padding-top: 156px;
 }
 
-.float {
-  display: inline-block;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-property: transform;
-  transition-property: transform;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+.login__field {
+	padding: 20px 0px;	
+	position: relative;	
 }
 
-.float:hover, .float:focus, .float:active {
-  -webkit-transform: translateY(-3px);
-  transform: translateY(-3px);
-}
-.sec_login{
-    width: 1000px;
-    height: 1000px;
-    background-color: red;
-}
-/* Large Devices, Wide Screens */
-
-.div_img{
-background-color: white;
-width: 100%;
-height: 50px;
-margin: 0;
-padding: 0 ;
-z-index: 20;
-opacity: 100%;
-
-
-}
-.div_img img{
-    opacity: 100%;
-    margin-left: 10px;
-    margin-top: 8px;
+.login__icon {
+	position: absolute;
+	top: 30px;
+	color: #7875B5;
 }
 
+.login__input {
+	border: none;
+	border-bottom: 2px solid #D1D1D4;
+	background: none;
+	padding: 10px;
+	padding-left: 24px;
+	font-weight: 700;
+	width: 75%;
+	transition: .2s;
+}
 
+.login__input:active,
+.login__input:focus,
+.login__input:hover {
+	outline: none;
+	border-bottom-color: #6A679E;
+}
 
-/* Small Devices, Tablets */
+.login__submit {
+	background: #fff;
+	font-size: 14px;
+	margin-top: 30px;
+	padding: 16px 20px;
+	border-radius: 26px;
+	border: 1px solid #D4D3E8;
+	text-transform: uppercase;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	color: #4C489D;
+	box-shadow: 0px 2px 2px #5C5696;
+	cursor: pointer;
+	transition: .2s;
+}
 
+.login__submit:active,
+.login__submit:focus,
+.login__submit:hover {
+	border-color: #6A679E;
+	outline: none;
+}
 
-</style>
+.button__icon {
+	font-size: 24px;
+	margin-left: auto;
+	color: #7875B5;
+}
+
+.social-login {	
+	position: absolute;
+	height: 140px;
+	width: 160px;
+	text-align: center;
+	bottom: 0px;
+	right: 0px;
+	color: #fff;
+}
+
+.social-icons {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.social-login__icon {
+	padding: 20px 10px;
+	color: #fff;
+	text-decoration: none;	
+	text-shadow: 0px 0px 8px #7875B5;
+}
+
+.social-login__icon:hover {
+	transform: scale(1.5);	
+}</style>
 </head>
 <body>
-<!-- <section class="sec_login"> -->
-<div class="div_img"> <img src="img/logo.svg" alt=""></div> 
 
-<div class="login">
-  <div class="heading">
-    <h2>Sign in</h2>
-    <form action="login.php" method="post">
-
-      <div class="input-group input-group-lg">
-        <span class="input-group-addon"><i class="fa fa-user"></i></span>
-        <input type="text" class="form-control" name="user" placeholder="Username">
-          </div>
-
-        <div class="input-group input-group-lg">
-          <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-          <input type="password" name="password" class="form-control" placeholder="Password">
-        </div>
-
-        <button type="submit" class="float">Login</button>
-       </form>
- 		</div>
- </div>
- <!-- </section> -->
+<div class="screen"> 
+		<div class="screen__content">
+			<form action="login.php" method="post" class="login">
+				<div class="login__field">
+					<i class="login__icon fas fa-user"></i>
+					<input type="text" name="user" class="login__input" placeholder="your name">
+				</div>
+				<div class="login__field">
+					<i class="login__icon fas fa-lock"></i>
+					<input type="password" name="password" class="login__input" placeholder="Password">
+				</div>
+				<button class="button login__submit">
+					<span class="button__text">Log In Now</span>
+					<i class="button__icon fas fa-chevron-right"></i>
+				</button>				
+			</form>
+			<div class="social-login">
+				<div class="social-icons">
+					<a href="#" class="social-login__icon fab fa-instagram"></a>
+					<a href="#" class="social-login__icon fab fa-facebook"></a>
+					<a href="#" class="social-login__icon fab fa-twitter"></a>
+				</div>
+			</div>
+		</div>
+		<div class="screen__background">
+			<span class="screen__background__shape screen__background__shape4"></span>
+			<span class="screen__background__shape screen__background__shape3"></span>		
+			<span class="screen__background__shape screen__background__shape2"></span>
+			<span class="screen__background__shape screen__background__shape1"></span>
+		</div>		
+	</div>
+</div>
 </body>
 </html>
+	
