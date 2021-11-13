@@ -1,36 +1,4 @@
-<?php
-session_start();
-if(isset($_POST['password'])){
-  $user = $_POST['user'];
-  $password = $_POST['password']; 
-  $con = mysqli_connect("localhost","root","","webcontest");
-  $sql = "SELECT * FROM `employee` WHERE  `Emp_id` = '$user' && `password`='$password'"; 
-  $q = mysqli_query($con,$sql); 
-  $res = mysqli_fetch_assoc($q);
-if(!empty($res)){
-echo "ok"; 
-  $_SESSION['id']=$res;  
-//    echo "email or password wrong"; 
-  $res["hr"]?$_session['hr']=1:$_session['hr']=2;
-  echo $_session['hr'];
-//   echo $_session['hr']; 
-//  header("LOCATION:apply.php");
-}else{
-  echo "email or password wrong"; 
-  //header("LOCATION:login.php");
-}
-  }
-  
-  
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>@import "bourbon";
+<style>@import "bourbon";
 
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700);
 @import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css);
@@ -45,6 +13,7 @@ $button-background-color: #27AE60;
   margin: 0;
   padding: 0;
 }
+
 html { 
   background: url(https://dl.dropboxusercontent.com/u/159328383/background.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -52,13 +21,9 @@ html {
   -o-background-size: cover;
   background-size: cover;
 }
-body{
-    background-color: #7298b9;
-    width: 100%;
-    height: 100%;
-}
+
 body {
-  /* background: transparent; */
+  background: transparent;
 }
 
 body, input, button {
@@ -167,60 +132,69 @@ body, input, button {
   -webkit-transform: translateY(-3px);
   transform: translateY(-3px);
 }
-.sec_login{
-    width: 1000px;
-    height: 1000px;
-    background-color: red;
-}
+
 /* Large Devices, Wide Screens */
 
-.div_img{
-background-color: white;
-width: 100%;
-height: 50px;
-margin: 0;
-padding: 0 ;
-z-index: 20;
-opacity: 100%;
-
-
-}
-.div_img img{
-    opacity: 100%;
-    margin-left: 10px;
-    margin-top: 8px;
+@media only screen and (max-width : 1500px) {
 }
 
+@media only screen and (max-width : 1200px) {
+  .login {
+    width: 600px;
+    font-size: 2em;
+  }
+}
 
+@media only screen and (max-width : 1100px) {
+  .login {
+    margin-top: 2%;
+    width: 600px;
+    font-size: 1.7em;
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+  .login {
+    margin-top: 1%;
+    width: 550px;
+    font-size: 1.7em;
+    min-height: 0;
+  }
+}
 
 /* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+  .login {
+    margin-top: 0;
+    width: 500px;
+    font-size: 1.3em;
+    min-height: 0;
+  }
+}
 
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+  .login {
 
+    h2 {
+      margin-top: 0;
+    }
+
+    margin-top: 0;
+    width: 400px;
+    font-size: 1em;
+    min-height: 0;
+  }
+}
+
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width : 320px) {
+  .login {
+    margin-top: 0;
+    width: 200px;
+    font-size: 0.7em;
+    min-height: 0;
+  }
+}
 </style>
-</head>
-<body>
-<!-- <section class="sec_login"> -->
-<div class="div_img"> <img src="img/logo.svg" alt=""></div> 
-
-<div class="login">
-  <div class="heading">
-    <h2>Sign in</h2>
-    <form action="login.php" method="post">
-
-      <div class="input-group input-group-lg">
-        <span class="input-group-addon"><i class="fa fa-user"></i></span>
-        <input type="text" class="form-control" name="user" placeholder="Username">
-          </div>
-
-        <div class="input-group input-group-lg">
-          <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-          <input type="password" name="password" class="form-control" placeholder="Password">
-        </div>
-
-        <button type="submit" class="float">Login</button>
-       </form>
- 		</div>
- </div>
- <!-- </section> -->
-</body>
-</html>

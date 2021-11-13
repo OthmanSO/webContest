@@ -7,8 +7,6 @@
     justify-items: flex-end;
     flex-direction: row;
     flex-wrap: wrap;
-
-
 }
 .osama{
     height: 100px;
@@ -65,7 +63,6 @@ z-index: 10;
 
 }
 .div_button button{
-   
     width: 280px ;
         margin-bottom: 19px;
         height: 62px;
@@ -75,5 +72,4 @@ z-index: 10;
         color: white;
         z-index: 100;
         font-size: xx-large;
-        
 }
