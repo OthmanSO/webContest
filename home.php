@@ -1,3 +1,13 @@
+<?php
+
+if(isset($_POST['login'])){
+    header("LOCATION:login.php");
+}
+if(isset($_POST['apply'])){
+    header("LOCATION:apply.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,8 +28,10 @@
      <div class="div_img"> <img src="img/logo.svg" alt=""></div> 
      <div class="div_all"></div>
      <div class="div_button">
-     <button>sign in </button>
-     <button>apply now</button>
+         <form action="home.php" method="post">
+     <button name="login">sign in </button> <br>
+     <button name="apply">apply now</button>
+     </form>
     </div>
 
 
