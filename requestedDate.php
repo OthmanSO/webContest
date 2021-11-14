@@ -1,3 +1,4 @@
+<?php 
 #include('schedules.php');
 
 if(isset($_SESSION['loggedin'])  and $_SESSION['loggedin'] === 0){

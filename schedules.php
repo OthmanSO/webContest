@@ -1,3 +1,4 @@
+<?php 
 // post ( requested date )   ,   session( id employee)
 function employee_Schedule(){
     $con = mysqli_connect("localhost","root","","webcontest");
