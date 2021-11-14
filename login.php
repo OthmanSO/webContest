@@ -38,7 +38,8 @@ a
 }
 
 body {
-	background: linear-gradient(90deg, #C7C5F4, #776BCC);		
+	background: linear-gradient(90deg, #eaf2, #619bb9);	
+	/* background-color: ;	 */
 }
 
 .container {
@@ -49,11 +50,11 @@ body {
 }
 
 .screen {		
-	background: linear-gradient(90deg, #5D54A4, #7C78B8);		
+	background: linear-gradient(90deg, #8cb4cd, #d2dcec);		
 	position: relative;	
 	height: 600px;
 	width: 360px;	
-	box-shadow: 0px 0px 24px #5C5696;
+	box-shadow: 0px 0px 24px #619bb9;
 }
 
 .screen__content {
@@ -90,7 +91,7 @@ body {
 .screen__background__shape2 {
 	height: 220px;
 	width: 220px;
-	background: #6C63AC;	
+	background: #619bb9;	
 	top: -172px;
 	right: 0;	
 	border-radius: 32px;
@@ -99,7 +100,7 @@ body {
 .screen__background__shape3 {
 	height: 540px;
 	width: 190px;
-	background: linear-gradient(270deg, #5D54A4, #6A679E);
+	background: linear-gradient(270deg, #79a9c4, #4d84a0);
 	top: -24px;
 	right: 0;	
 	border-radius: 32px;
@@ -108,7 +109,7 @@ body {
 .screen__background__shape4 {
 	height: 400px;
 	width: 200px;
-	background: #7E7BB9;	
+	background: #619bb9;	
 	top: 420px;
 	right: 50px;	
 	border-radius: 60px;
@@ -161,8 +162,8 @@ body {
 	display: flex;
 	align-items: center;
 	width: 100%;
-	color: #4C489D;
-	box-shadow: 0px 2px 2px #5C5696;
+	color: #619bb9;
+	box-shadow: 0px 2px 2px #619bb9;
 	cursor: pointer;
 	transition: .2s;
 }
@@ -173,7 +174,9 @@ body {
 	border-color: #6A679E;
 	outline: none;
 }
-
+.section5{
+	display: flex;
+	justify-content: center;}
 .button__icon {
 	font-size: 24px;
 	margin-left: auto;
@@ -208,7 +211,7 @@ body {
 }</style>
 </head>
 <body>
-
+<section class="section5">
 <div class="screen"> 
 		<div class="screen__content">
 			<form action="login.php" method="post" class="login">
@@ -241,6 +244,7 @@ body {
 		</div>		
 	</div>
 </div>
+</section>
 </body>
 </html>
 	
