@@ -1,13 +1,11 @@
 <?php
-
 if(isset($_POST['login'])){
     header("LOCATION:login.php");
 }
 if(isset($_POST['apply'])){
-    header("LOCATION:apply.php");
+    header("LOCATION:application.php");
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,8 +21,6 @@ if(isset($_POST['apply'])){
 </section>
 <button onclick="osama()">click</button>
     <script src="in.js"></script> -->
-    
-
      <div class="div_img"> <img src="img/logo.svg" alt=""></div> 
      <div class="div_all"></div>
      <div class="div_button">

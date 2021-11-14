@@ -21,7 +21,7 @@
     margin: 10px;
 } */
 body{
-    background-image: url("img/1000_F_279568799_ecMWNgrMJrAy5zgp2Nnr1F5rDvSx0ZXV.jpg");
+    background-image: url("img/logg.jpeg");
     background-size: cover;
     position: relative;
     padding: 0;
@@ -35,8 +35,6 @@ margin: 0;
 padding: 0 ;
 z-index: 20;
 opacity: 83%;
-
-
 }
 .div_img img{
     opacity: 100%;
