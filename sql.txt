@@ -1,0 +1,141 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Nov 15, 2021 at 08:10 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.10
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `exalt_scheduler`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `application`
+--
+
+CREATE TABLE `application` (
+  `ID` int(11) NOT NULL,
+  `Applyer_name` varchar(100) NOT NULL,
+  `assigned_date` varchar(50) DEFAULT NULL,
+  `backup_date` varchar(50) DEFAULT NULL,
+  `email` varchar(100) NOT NULL,
+  `phone_no` varchar(15) NOT NULL,
+  `cv_link` varchar(200) NOT NULL,
+  `comments` varchar(1000) NOT NULL,
+  `location` varchar(20) NOT NULL,
+  `approved` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf16;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employee`
+--
+
+CREATE TABLE `employee` (
+  `Emp_id` int(11) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `emp_name` varchar(100) NOT NULL,
+  `hr` tinyint(1) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `phone_no` varchar(15) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf16;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employee_free`
+--
+
+CREATE TABLE `employee_free` (
+  `emp_id` int(11) NOT NULL,
+  `time_slot` int(11) NOT NULL,
+  `location` varchar(20) NOT NULL,
+  `requested_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf16;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `meeting_room`
+--
+
+CREATE TABLE `meeting_room` (
+  `ID` int(11) NOT NULL,
+  `location` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf16;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `meeting_room_reserved`
+--
+
+CREATE TABLE `meeting_room_reserved` (
+  `room_id` int(11) NOT NULL,
+  `time_slot` int(11) NOT NULL,
+  `requested_Date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf16;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `employee`
+--
+ALTER TABLE `employee`
+  ADD PRIMARY KEY (`Emp_id`);
+
+--
+-- Indexes for table `employee_free`
+--
+ALTER TABLE `employee_free`
+  ADD KEY `id_for_emp` (`emp_id`);
+
+--
+-- Indexes for table `meeting_room`
+--
+ALTER TABLE `meeting_room`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `meeting_room_reserved`
+--
+ALTER TABLE `meeting_room_reserved`
+  ADD KEY `id_for_room` (`room_id`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `employee_free`
+--
+ALTER TABLE `employee_free`
+  ADD CONSTRAINT `id_for_emp` FOREIGN KEY (`emp_id`) REFERENCES `employee` (`Emp_id`);
+
+--
+-- Constraints for table `meeting_room_reserved`
+--
+ALTER TABLE `meeting_room_reserved`
+  ADD CONSTRAINT `id_for_room` FOREIGN KEY (`room_id`) REFERENCES `meeting_room` (`ID`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
