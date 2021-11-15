@@ -13,15 +13,11 @@ if(isset($_POST['apply'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/stylehome.css">
 </head>
 <body>
-    <!-- <section class="sec1" id="sec">
-<div class="osama"></div> 
-</section>
-<button onclick="osama()">click</button>
-    <script src="in.js"></script> -->
-     <div class="div_img"> <img src="img/logo.svg" alt=""></div> 
+   
+      <div class="div_img"> <img src="img/logo.svg" alt=""></div> 
      <div class="div_all"></div>
      <div class="div_button">
          <form action="home.php" method="post">
@@ -29,7 +25,8 @@ if(isset($_POST['apply'])){
      <button name="apply">apply now</button>
      </form>
     </div>
-
-
 </body>
 </html>
+
+
+

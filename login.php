@@ -14,7 +14,7 @@ if(!empty($res)){
   $res["hr"]?$_session['hr']=1:$_session['hr']=2;
     $_session["id_loggedin"]=$user;
   //   echo $_session['hr']; 
- header("LOCATION:apply.php");
+ header("LOCATION:homepage.html");
 }else{
   echo "email or password wrong"; 
   //header("LOCATION:login.php");

@@ -13,8 +13,8 @@ body{
 nav{
 width: 100%;
 padding: 0px;
-height: 25%;
-background-color:#619BB9 ;
+height: 10%;
+background-color:#9ecfe7 ;
 
 }
 nav .logo{
@@ -37,7 +37,8 @@ nav .list{
     margin-top: 13px;
 }
 nav .list li{
-    margin-left: 15px;
+    margin-left: 20px;
+    margin-top: -30PX;
 
 }
 
@@ -172,6 +173,7 @@ nav .list li a:hover{
 
 .social-buttons {
 	background: #1df228;
+  display: none;
 }
 
 .social-buttons [href*="facebook.com"] {
@@ -317,7 +319,7 @@ body {font-family: Verdana, sans-serif;}
   
   header {
     background-color: #fff;
-    display: flex;
+    display: none;
     height: 58px;
     justify-content: space-between;
     overflow: hidden;
@@ -325,7 +327,7 @@ body {font-family: Verdana, sans-serif;}
   }
   
   .header__btn {
-    background-color: #86D8C9;
+    background-color: #619bb9;
     border: 2px solid #fff;
     border-radius: 50%;
     -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
@@ -358,7 +360,7 @@ body {font-family: Verdana, sans-serif;}
   }
   
   .calendar-container {
-    background-color: #fff;
+    background-color: #f7f9fa;
     padding: 16px;
     margin-bottom: 24px;
   }
@@ -462,12 +464,12 @@ body {font-family: Verdana, sans-serif;}
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
   }
   .calendar-table__event .calendar-table__item {
-    background-color: #66DCEC;
-    border-color: #FEFEFE;
-    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+    /* background-color: #66DCEC; */
+    /* border-color: #FEFEFE; */
+    /* -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
     -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
-    color: #fff;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);fheader__btn
+    color: rgb(0, 0, 0); */
   }
   .calendar-table__event--long {
     overflow-x: hidden;
@@ -511,6 +513,7 @@ body {font-family: Verdana, sans-serif;}
   
   .events-container {
     padding: 0 15px;
+    display: none;
   }
   
   .events__title {
@@ -546,7 +549,7 @@ body {font-family: Verdana, sans-serif;}
     -webkit-box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.05);
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.05);
     padding: 15px 16px;
-    display: flex;
+    display: none;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 16px;
